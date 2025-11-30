@@ -20,6 +20,9 @@ COPY --from=base /usr/local /usr/local
 
 COPY . .
 
+RUN mkdir bert
+RUN mkdir tokenizer
+
 RUN curl "https://drive.usercontent.google.com/download?id=1tWmikxMBnfLr61nHevav6Bi6NETsOMTO&confirm=xxx" -o ./bert/model.safetensors
 RUN curl "https://drive.usercontent.google.com/download?id=1oHUrb_DPtij0CAdjPQNGupStpuSNpxJt&confirm=xxx" -o ./bert/config.json
 
