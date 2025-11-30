@@ -1,0 +1,53 @@
+[
+    {
+        "Accuracy": 0.739625,
+        "F1_micro": {
+            "f1": 0.739625
+        },
+        "F1_macro": {
+            "f1": 0.7390425001425301
+        },
+        "Loss": "CrossEntropy",
+        "Epoch": 0,
+        "Iteration": 1,
+        "Model": "Bert"
+    },
+    {
+        "Accuracy": 0.7465625,
+        "F1_micro": {
+            "f1": 0.7465625
+        },
+        "F1_macro": {
+            "f1": 0.7467418886146726
+        },
+        "Loss": "CrossEntropy",
+        "Epoch": 1,
+        "Iteration": 1,
+        "Model": "Bert"
+    },
+    {
+        "Accuracy": 0.7395,
+        "F1_micro": {
+            "f1": 0.7395
+        },
+        "F1_macro": {
+            "f1": 0.736219596893513
+        },
+        "Loss": "CrossEntropy",
+        "Epoch": 0,
+        "Iteration": 2,
+        "Model": "Bert"
+    },
+    {
+        "Accuracy": 0.736,
+        "F1_micro": {
+            "f1": 0.736
+        },
+        "F1_macro": {
+            "f1": 0.7388096537832908
+        },
+        "Loss": "ELR",
+        "Epoch": 0,
+        "Model": "Bert"
+    }
+]
