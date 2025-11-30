@@ -21,6 +21,5 @@ COPY --from=base /usr/local /usr/local
 COPY . .
 
 EXPOSE 5050
-ENV PATH="/usr/local/bin:${PATH}"
 
 CMD ["python", "-m", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "5050"]
