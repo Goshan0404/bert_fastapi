@@ -9,8 +9,8 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 COPY requirements.txt .
-
 RUN pip install --no-cache-dir -r requirements.txt
+
 
 FROM python:3.10-slim
 
@@ -18,20 +18,19 @@ WORKDIR /app
 
 COPY --from=base /usr/local /usr/local
 
+RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
+
 COPY . .
 
-RUN mkdir bert
-RUN mkdir tokenizer
+RUN mkdir bert tokenizer
 
-RUN curl "https://drive.usercontent.google.com/download?id=1tWmikxMBnfLr61nHevav6Bi6NETsOMTO&confirm=xxx" -o ./bert/model.safetensors
-RUN curl "https://drive.usercontent.google.com/download?id=1oHUrb_DPtij0CAdjPQNGupStpuSNpxJt&confirm=xxx" -o ./bert/config.json
+RUN curl -L "https://drive.usercontent.google.com/download?id=1tWmikxMBnfLr61nHevav6Bi6NETsOMTO&confirm=xxx" -o bert/model.safetensors
+RUN curl -L "https://drive.usercontent.google.com/download?id=1oHUrb_DPtij0CAdjPQNGupStpuSNpxJt&confirm=xxx" -o bert/config.json
 
-
-RUN curl "https://drive.usercontent.google.com/download?id=1VfdVpqio4vN2Pvc7Aey7y88g5b8oVLgZ&confirm=xxx" -o ./tokenizer/special_tokens_map.json
-RUN curl "https://drive.usercontent.google.com/download?id=1d_0HZ1h4P7H55LIv5lPbNU6WQDREfKIt&confirm=xxx" -o ./tokenizer/tokenizer.json
-RUN curl "https://drive.usercontent.google.com/download?id=1Hn1N3aQronIHU4mC369dk_FW2qUMZwrE&confirm=xxx" -o ./tokenizer/tokenizer_config.json
-RUN curl "https://drive.usercontent.google.com/download?id=1pOxTulpaq8fTJbWM6VtNiDvawGkU7mkD&confirm=xxx" -o ./tokenizer/vocab.txt
-
+RUN curl -L "https://drive.usercontent.google.com/download?id=1VfdVpqio4vN2Pvc7Aey7y88g5b8oVLgZ&confirm=xxx" -o tokenizer/special_tokens_map.json
+RUN curl -L "https://drive.usercontent.google.com/download?id=1d_0HZ1h4P7H55LIv5lPbNU6WQDREfKIt&confirm=xxx" -o tokenizer/tokenizer.json
+RUN curl -L "https://drive.usercontent.google.com/download?id=1Hn1N3aQronIHU4mC369dk_FW2qUMZwrE&confirm=xxx" -o tokenizer/tokenizer_config.json
+RUN curl -L "https://drive.usercontent.google.com/download?id=1pOxTulpaq8fTJbWM6VtNiDvawGkU7mkD&confirm=xxx" -o tokenizer/vocab.txt
 
 
 EXPOSE 5050
